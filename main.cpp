@@ -23,6 +23,30 @@ void mostrarElementos(Lista<Pelicula> &pelicula){
 		cout << endl;
 	}
 }
+///Falta algunos arreglos
+/*
+void mostrarRecomendados(Lista<Pelicula> &pelicula_reco){
+	for (unsigned int i = 1; i <= pelicula_reco.getTamanio(); i++) {
+
+		imprimir("*Recomendadas: " + pelicula_reco.obtener(i).getNombre());
+		cout << endl;
+	}
+}
+
+void compararArchivo(Lista<Pelicula> &pelicula_nv,Lista<Pelicula> &pelicula_v,Lista<Pelicula> &pelicula_r) {
+	//int puntaje;
+	for (unsigned int j = 1; j <= pelicula_nv.getTamanio(); j++) {
+		for (unsigned int i = 1; i <= pelicula_v.getTamanio(); i++) {
+			//puntaje = atoi(pelicula_nv.obtener(j).getPuntaje().c_str());
+			if((pelicula_v.obtener(i).getGenero() == pelicula_nv.obtener(j).getGenero()) && (pelicula_v.obtener(i).getDirector() == pelicula_nv.obtener(j).getDirector())) {
+				//imprimir("*Recomendadas: " + pelicula_v.obtener(i).getNombre());
+				cout << endl;
+				mostrarRecomendados(pelicula_r);
+			}
+		}
+	}
+}
+*/
 
 int main() {
 
