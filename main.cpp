@@ -13,6 +13,8 @@ int main() {
 	menu.agregarPeliculasNoVistas(cargador.obtenerPeliculasNoVistas());
 	menu.agregarPeliculasVistas(cargador.obtenerPeliculasVistas());
 
+	menu.calcularRecomendadas();
+	
 	menu.mostrarMenu();
 
 	cout << "** fin **" << endl;
