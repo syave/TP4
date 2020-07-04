@@ -12,6 +12,7 @@ CargadorDeArchivos::~CargadorDeArchivos() {
 
 void CargadorDeArchivos::cargarPeliculasVistas(std::string ruta) {
 	listaPeliculasVistas = cargarDesdeArchivo(ruta);
+	if(listaPeliculasVistas==0) std::cout << "No se abrio archivo" << std::endl;
 }
 
 void CargadorDeArchivos::cargarPeliculasNoVistas(std::string ruta) {
@@ -35,19 +36,19 @@ Lista<Pelicula>* CargadorDeArchivos::cargarDesdeArchivo(std::string nombreArchiv
 	if (!archivo.fail()) {
 
 		while (archivo >> linea) {
-			Pelicula p;
+			Pelicula peliculaAuxiliar;
 			Lista<string> *actoresAuxiliares = new Lista<string>;
 
-			p.setNombre(linea);
+			peliculaAuxiliar.setNombre(linea);
 
 			archivo >> linea;
-			p.setGenero(linea);
+			peliculaAuxiliar.setGenero(linea);
 
 			archivo >> linea;
-			p.setPuntaje(linea);
+			peliculaAuxiliar.setPuntaje(linea);
 
 			archivo >> linea;
-			p.setDirector(linea);
+			peliculaAuxiliar.setDirector(linea);
 
 			archivo >> linea;
 			actoresAuxiliares->agregar(linea);
@@ -57,8 +58,8 @@ Lista<Pelicula>* CargadorDeArchivos::cargarDesdeArchivo(std::string nombreArchiv
 				actoresAuxiliares->agregar(linea);
 			}
 
-			p.setActores(actoresAuxiliares);
-			auxiliar->agregar(p);
+			peliculaAuxiliar.setActores(actoresAuxiliares);
+			auxiliar->agregar(peliculaAuxiliar);
 		}
 
 		archivo.close();
