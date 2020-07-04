@@ -10,3 +10,8 @@ Drama_Suspenso
 Henri_Verneuil
 Yves_Montand Michel_Albertini
 
+Scary_Movie_2
+Comedia
+9
+Keenen_Ivory_Wayans
+Anna_Faris Regina_Hall Shawn_Wayans Marlon_Wayans
