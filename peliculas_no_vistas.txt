@@ -16,9 +16,8 @@ Terror
 Kevin_Kolsch
 Jason_Clarke Amy_Seimetz
 
-Roland_Amstutz
-Jean_Pierre_Bagot
-Katie_Holmes
-Rafaela_Leon
-John_Lithgow
-
+Scary_Movie_1
+Comedia
+10
+Keenen_Ivory_Wayans
+Anna_Faris Regina_Hall Shannon_Elizabeth Jon_Abrahams
