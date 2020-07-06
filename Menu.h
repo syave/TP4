@@ -10,6 +10,7 @@ private:
 	Lista<Pelicula> *peliculas_vistas;
 	Lista<Pelicula> *peliculas_no_vistas;
 	Lista<Pelicula> *peliculas_recomendadas;
+	unsigned entrada;
 public:
 	Menu();
 	~Menu();
@@ -28,6 +29,9 @@ public:
 	void mostrarPeliculasRecomendadas();
 
 	void calcularRecomendadas();
+	
+	void limpiarPantalla();
+	void menuOpciones();
 	
 private:
 	void mostrarElementos(Lista<Pelicula> * pelicula);
