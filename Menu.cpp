@@ -4,6 +4,7 @@ Menu::Menu(){
 	peliculas_vistas = 0;
 	peliculas_no_vistas = 0;
 	peliculas_recomendadas = 0;
+	entrada = 0;
 }
 
 Menu::~Menu() {
@@ -13,21 +14,12 @@ Menu::~Menu() {
 }
 
 void Menu::mostrarMenu() {
-	int operacion = -1;
+	while (entrada != 4) {
+		menuOpciones();
 
-	while (operacion != 0) {
-		std::cout << "TP4" << std::endl;
-		std::cout << "------------------------" << std::endl;
-		std::cout << "Elegir opcion: " << std::endl;
-		std::cout << " -1) Mostrar peliculas vistas. " << std::endl;
-		std::cout << " -2) Mostrar peliculas no vistas. " << std::endl;
-		std::cout << " -3) Mostrar peliculas recomendadas. " << std::endl;
-		std::cout << " -0) Salir. " << std::endl;
-		std::cout << "------------------------" << std::endl << std::endl;
+		std::cin >> entrada;
 
-		std::cin >> operacion;
-
-		switch (operacion) {
+		switch (entrada) {
 		case 1:
 			std::cout << std::endl << "Peliculas vistas: " << std::endl << std::endl;
 			mostrarPeliculasVistas();
@@ -38,6 +30,8 @@ void Menu::mostrarMenu() {
 		case 3:
 			mostrarPeliculasRecomendadas();
 			break;
+		case 4:
+			limpiarPantalla();
 		}
 	}
 }
@@ -71,6 +65,8 @@ void Menu::mostrarPeliculasRecomendadas() {
 }
 
 void Menu::mostrarElementos(Lista<Pelicula> * pelicula) {
+	limpiarPantalla();
+	
 	for (unsigned int j = 1; j <= pelicula->getTamanio(); j++) {
 
 		std::cout << ( pelicula->obtener(j).getNombre()) << std::endl;
@@ -87,7 +83,8 @@ void Menu::mostrarElementos(Lista<Pelicula> * pelicula) {
 	}
 }
 void Menu::calcularRecomendadas(){
-
+	limpiarPantalla();
+	
 	if (peliculas_vistas != 0 && peliculas_no_vistas != 0) {
 
 		peliculas_recomendadas = new Lista<Pelicula>;
@@ -155,4 +152,25 @@ bool Menu::coincidenActores(Pelicula *peliculaA, Pelicula *peliculaB) {
 
 bool Menu::coincideDirectorOActor(Pelicula *peliculaA, Pelicula *peliculaB) {
 	return (coincidenDirector(peliculaA, peliculaB)) || coincidenActores(peliculaA, peliculaB);
+}
+
+void Menu::limpiarPantalla(){
+
+	#ifdef linux
+    		system("clear");
+	#else
+    		system ("cls");
+	#endif
+}
+
+void Menu::menuOpciones() {
+	std::cout << "TP4" << std::endl;
+	std::cout << "--------------------------------------" << std::endl;
+	std::cout << "Por favor introduzca una opcion: " << std::endl;
+	std::cout << 	" -1) Mostrar peliculas vistas.\n"
+			" -2) Mostrar peliculas no vistas.\n"
+			" -3) Mostrar peliculas recomendadas.\n"
+			" -4) Salir.\n";
+	std::cout << "--------------------------------------" << std::endl << std::endl;
+	std::cout << "Entrada: ";
 }
