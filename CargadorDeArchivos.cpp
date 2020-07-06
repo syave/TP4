@@ -30,32 +30,39 @@ Lista<Pelicula>* CargadorDeArchivos::obtenerPeliculasNoVistas() {
 Lista<Pelicula>* CargadorDeArchivos::cargarDesdeArchivo(std::string nombreArchivo) {
 	ifstream archivo(nombreArchivo);
 	string linea;
+	string nombre,generos,director,puntaje,actores;
 
 	Lista<Pelicula> *auxiliar = new Lista<Pelicula>;
 
 	if (!archivo.fail()) {
 
-		while (archivo >> linea) {
+		while (archivo >> nombre) {
 			Pelicula peliculaAuxiliar;
 			Lista<string> *actoresAuxiliares = new Lista<string>;
 
-			peliculaAuxiliar.setNombre(linea);
+			getline(archivo,linea);
+			nombre +=  linea;
+			peliculaAuxiliar.setNombre(nombre);
 
-			archivo >> linea;
-			peliculaAuxiliar.setGenero(linea);
+			archivo >> generos;
+			getline(archivo,linea);
+			generos += linea;
+			peliculaAuxiliar.setGenero(generos);
 
-			archivo >> linea;
-			peliculaAuxiliar.setPuntaje(linea);
+			archivo >> puntaje;
+			peliculaAuxiliar.setPuntaje(puntaje);
 
-			archivo >> linea;
-			peliculaAuxiliar.setDirector(linea);
+			archivo >> director;
+			getline(archivo,linea);
+			director += linea;
+			peliculaAuxiliar.setDirector(director);
 
-			archivo >> linea;
-			actoresAuxiliares->agregar(linea);
+			archivo >> actores;
+			actoresAuxiliares->agregar(actores);
 
 			while (archivo.peek() != '\n') {
-				archivo >> linea;
-				actoresAuxiliares->agregar(linea);
+				archivo >> actores;
+				actoresAuxiliares->agregar(actores);
 			}
 
 			peliculaAuxiliar.setActores(actoresAuxiliares);
